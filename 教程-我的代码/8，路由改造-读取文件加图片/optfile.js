@@ -4,7 +4,8 @@ module.exports={
     readfile:function(path,a){          //异步执行
         fs.readFile(path,  function  (err,  data)  {
             if  (err)  {
-                console.log(err);
+                console.log('错误：'+err);
+                recall('出现错误');
             }else{
                 a(data);
             }
@@ -19,7 +20,8 @@ module.exports={
     readImg:function(path,res){
         fs.readFile(path,'binary',function(err,  file)  {
             if  (err)  {
-                console.log(err);
+                console.log('错误：'+err);
+                recall('出现错误');
                 return;
             }else{
                 res.write(file,'binary');
@@ -32,7 +34,8 @@ module.exports={
     writefile:function(path,data,a){    //异步方式
         fs.writeFile(path,  data,  function  (err)  {
             if  (err)  {
-                throw  err;
+                console.log('错误：'+err);
+                recall('出现错误');
             }else{
                 a('写入文件成功');
             }

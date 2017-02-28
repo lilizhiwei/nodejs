@@ -3,6 +3,7 @@ var  http  =  require('http');
 var    url    =    require('url');
 var    router    =    require('./router');
 http.createServer(function  (request,  response)  {
+    response.writeHead(200,  {'Content-Type':  'text/html;  charset=utf-8'});
     if(request.url!=="/favicon.ico"){  //清除第2此访问
         var    pathname =  url.parse(request.url).pathname;//获取路由
         pathname    =    pathname.replace(/\//,    '');//替换掉前面的/
